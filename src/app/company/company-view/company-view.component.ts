@@ -23,6 +23,10 @@ export class CompanyViewComponent implements OnInit {
     this.selection = data;
   }
 
+  public deselectData() {
+    this.selection = null;
+  }
+
   public deleteData(data: Company) {
     this.companies = this.dataService.deleteCompany(data);
   }
