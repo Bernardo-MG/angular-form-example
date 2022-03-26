@@ -1,5 +1,5 @@
 <ng-template [ngIf]="selection" [ngIfElse]="select">
-    <company-data-form [data]="selection" (return)="deselectData()"></company-data-form>
+    <company-data-form [data]="selection" (return)="deselectData()" (save)="saveData($event)"></company-data-form>
 </ng-template>
 <ng-template #select>
     <company-data-select [data]="companies" (selected)="selectData($event)" (delete)="deleteData($event)">

@@ -13,6 +13,8 @@ export class CompanyViewComponent implements OnInit {
 
   companies: Company[] = [];
 
+  saved: String | null = null;
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -29,6 +31,10 @@ export class CompanyViewComponent implements OnInit {
 
   public deleteData(data: Company) {
     this.companies = this.dataService.deleteCompany(data);
+  }
+
+  public saveData(data: Company) {
+    this.dataService.saveCompany(data);
   }
 
 }

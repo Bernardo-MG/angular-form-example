@@ -48,4 +48,7 @@ export class DataService {
     return this.companies;
   }
 
+  public saveCompany(data: Company) {
+  }
+
 }

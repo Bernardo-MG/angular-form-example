@@ -7,7 +7,7 @@
             <button (click)="goBack()" type="button" class="btn btn-default">
                 <fa-icon [icon]="backIcon"></fa-icon>
             </button>
-            <button type="button" class="btn btn-default">
+            <button (click)="saveForm()" type="button" class="btn btn-default">
                 <fa-icon [icon]="saveIcon"></fa-icon>
             </button>
             <button type="button" class="btn btn-default">
@@ -35,3 +35,7 @@
         </ng-template>
     </ul>
 </form>
+<ng-template [ngIf]="saved">
+    <h2>Saved data</h2>
+    {{saved}}
+</ng-template>
