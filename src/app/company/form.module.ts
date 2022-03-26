@@ -5,6 +5,7 @@ import { DataSelectComponent } from './data-select/data-select.component';
 import { FormRoutingModule } from './form-routing.module';
 import { CompanyViewComponent } from './company-view/company-view.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     FormRoutingModule,
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FormModule { }

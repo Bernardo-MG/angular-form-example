@@ -8,17 +8,30 @@
                 <fa-icon [icon]="backIcon"></fa-icon>
             </button>
             <button type="button" class="btn btn-default">
+                <fa-icon [icon]="saveIcon"></fa-icon>
+            </button>
+            <button type="button" class="btn btn-default">
                 <fa-icon [icon]="editIcon"></fa-icon>
             </button>
         </div>
     </div>
 </div>
-<ul>
-    <li>{{data.location}}</li>
-</ul>
-<h2>Employees</h2>
-<ul>
-    <ng-template ngFor let-employee [ngForOf]="data.employees">
-        <li>{{employee.name}}</li>
-    </ng-template>
-</ul>
+<form [formGroup]="form">
+    <div class="form-group row">
+        <label for="location" class="col-sm-2 col-form-label">Location</label>
+        <div class="col-sm-10">
+            <input formControlName="location" type="text" class="form-control" id="location">
+        </div>
+    </div>
+    <h2>Employees</h2>
+    <ul formArrayName="employees">
+        <ng-template ngFor let-employee let-i="index" [ngForOf]="employees.controls">
+            <div class="form-group row" [formGroupName]="i">
+                <label for="{{'name'+i}}" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input formControlName="name" type="text" class="form-control" id="{{'name'+i}}">
+                </div>
+            </div>
+        </ng-template>
+    </ul>
+</form>
