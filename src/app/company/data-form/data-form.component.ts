@@ -75,11 +75,11 @@ export class DataFormComponent implements OnChanges {
   }
 
   public errors(field: string): ValidationErrors | null {
-    const fieldError = this.form.controls[field];
+    const fieldControl = this.form.controls[field];
 
     let errors;
-    if (fieldError) {
-      errors = this.form.controls[field].errors;
+    if (fieldControl) {
+      errors = fieldControl.errors;
     } else {
       errors = null;
     }
@@ -89,6 +89,32 @@ export class DataFormComponent implements OnChanges {
 
   public error(field: string, code: string): any {
     const errorList = this.errors(field);
+
+    let errorData;
+    if (errorList) {
+      errorData = errorList[code];
+    } else {
+      errorData = null;
+    }
+
+    return errorData;
+  }
+
+  public errorsInEmployees(field: string, index: number): ValidationErrors | null {
+    const fieldControl = (<FormArray> this.form.get('employees')).controls[index].get(field);
+
+    let errors;
+    if (fieldControl) {
+      errors = fieldControl.errors;
+    } else {
+      errors = null;
+    }
+
+    return errors;
+  }
+
+  public errorInEmployees(field: string, index: number, code: string): any {
+    const errorList = this.errorsInEmployees(field, index);
 
     let errorData;
     if (errorList) {

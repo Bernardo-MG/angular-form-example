@@ -37,7 +37,11 @@
                     <div class="form-group row" [formGroupName]="i">
                         <label for="{{'name'+i}}" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input formControlName="name" type="text" class="form-control" id="{{'name'+i}}">
+                            <input formControlName="name" type="text" class="form-control" id="name"
+                                [ngClass]="{ 'is-invalid': errorsInEmployees('name', i) }">
+                            <div *ngIf="errorsInEmployees('name', i)" class="invalid-feedback">
+                                <div *ngIf="errorInEmployees('name', i, 'required')">Name is required</div>
+                            </div>
                         </div>
                     </div>
                 </div>
