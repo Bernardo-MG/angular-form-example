@@ -1,18 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataSelectComponent } from './data-select/data-select.component';
+import { NgModule } from '@angular/core';
 import { DataFormComponent } from './data-form/data-form.component';
-import { FormViewComponent } from './form-view/form-view.component';
+import { DataSelectComponent } from './data-select/data-select.component';
+import { FormRoutingModule } from './form-routing.module';
 
 
 
 @NgModule({
   declarations: [
     DataSelectComponent,
-    DataFormComponent,
-    FormViewComponent
+    DataFormComponent
   ],
   imports: [
+    FormRoutingModule,
     CommonModule
   ]
 })

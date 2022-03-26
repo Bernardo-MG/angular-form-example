@@ -1,0 +1,5 @@
+<div class="list-group">
+    <ng-template ngFor let-option [ngForOf]="data">
+        <a routerLink="/company/{{option.name}}" class="list-group-item list-group-item-action">{{option.name}}</a>
+    </ng-template>
+</div>
