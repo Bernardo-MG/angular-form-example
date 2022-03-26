@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormViewComponent } from './form-view/form-view.component';
-
+import { CompanyViewComponent } from './company-view/company-view.component';
 
 const routes: Routes = [
     {
-        path: '', component: FormViewComponent
+        path: '', component: CompanyViewComponent
     }
 ];
 

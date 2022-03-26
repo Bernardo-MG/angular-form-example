@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DataFormComponent } from './data-form.component';
 
@@ -8,9 +9,15 @@ describe('DataFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DataFormComponent ]
+      declarations: [
+        DataFormComponent
+      ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

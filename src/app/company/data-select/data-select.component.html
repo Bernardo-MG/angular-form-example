@@ -1,0 +1,12 @@
+<div class="list-group">
+    <ng-template ngFor let-option [ngForOf]="data">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <button (click)="pickOption(option)" type="button" class="btn btn-default">
+                {{option.name}}
+            </button>
+            <button (click)="deleteOption(option)" type="button" class="btn btn-default">
+                <fa-icon [icon]="deleteIcon"></fa-icon>
+            </button>
+        </li>
+    </ng-template>
+</div>

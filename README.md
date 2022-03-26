@@ -4,7 +4,8 @@ Example for setting up a complex form;
 
 ## Features
 
-- HTTP Basic Authentication
+- Reactive form
+- Dynamic fields
 
 ## Usage
 
