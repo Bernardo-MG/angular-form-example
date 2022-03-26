@@ -2,5 +2,5 @@
     <company-data-form [data]="selection"></company-data-form>
 </ng-template>
 <ng-template #select>
-    <company-data-select (selected)="pickData($event)"></company-data-select>
+    <company-data-select [data]="companies" (selected)="selectData($event)" (delete)="deleteData($event)"></company-data-select>
 </ng-template>

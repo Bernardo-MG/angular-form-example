@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from '../model/company';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'company-company-view',
@@ -10,13 +11,20 @@ export class CompanyViewComponent implements OnInit {
 
   selection: Company | null = null;
 
-  constructor() { }
+  companies: Company[] = [];
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.companies = this.dataService.getCompanies();
   }
 
-  public pickData(data: Company) {
+  public selectData(data: Company) {
     this.selection = data;
+  }
+
+  public deleteData(data: Company) {
+    this.companies = this.dataService.deleteCompany(data);
   }
 
 }

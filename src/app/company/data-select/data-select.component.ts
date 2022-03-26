@@ -1,26 +1,30 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Company } from '../model/company';
-import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'company-data-select',
   templateUrl: './data-select.component.html',
   styleUrls: ['./data-select.component.sass']
 })
-export class DataSelectComponent implements OnInit {
+export class DataSelectComponent {
+
+  @Input() data: Company[] = [];
 
   @Output() selected = new EventEmitter<Company>();
 
-  data: Company[] = [];
+  @Output() delete = new EventEmitter<Company>();
+  
+  public deleteIcon = faTrash;
 
-  constructor(private dataService: DataService) { }
-
-  ngOnInit(): void {
-    this.data = this.dataService.getCompanies();
-  }
+  constructor() { }
 
   public pickOption(company: Company) {
     this.selected.emit(company);
+  }
+
+  public deleteOption(company: Company) {
+    this.delete.emit(company);
   }
 
 }
