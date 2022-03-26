@@ -10,9 +10,6 @@
             <button (click)="saveForm()" type="button" class="btn btn-default">
                 <fa-icon [icon]="saveIcon"></fa-icon>
             </button>
-            <button type="button" class="btn btn-default">
-                <fa-icon [icon]="editIcon"></fa-icon>
-            </button>
         </div>
     </div>
 </div>
@@ -20,7 +17,8 @@
     <div class="form-group row">
         <label for="location" class="col-sm-2 col-form-label">Location</label>
         <div class="col-sm-10">
-            <input formControlName="location" type="text" class="form-control" id="location" [ngClass]="{ 'is-invalid': errors('location') }">
+            <input formControlName="location" type="text" class="form-control" id="location"
+                [ngClass]="{ 'is-invalid': errors('location') }">
             <div *ngIf="errors('location')" class="invalid-feedback">
                 <div *ngIf="error('location', 'required')">Password is required</div>
             </div>
@@ -29,14 +27,26 @@
     <h2>Employees</h2>
     <ul formArrayName="employees">
         <ng-template ngFor let-employee let-i="index" [ngForOf]="employees.controls">
-            <div class="form-group row" [formGroupName]="i">
-                <label for="{{'name'+i}}" class="col-sm-2 col-form-label">Name</label>
-                <div class="col-sm-10">
-                    <input formControlName="name" type="text" class="form-control" id="{{'name'+i}}">
+            <div class="row">
+                <div class="col-sm-1">
+                    <button (click)="removeEmployee(i)" type="button" class="btn btn-default">
+                        <fa-icon [icon]="removeIcon"></fa-icon>
+                    </button>
+                </div>
+                <div class="col-sm-11">
+                    <div class="form-group row" [formGroupName]="i">
+                        <label for="{{'name'+i}}" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                            <input formControlName="name" type="text" class="form-control" id="{{'name'+i}}">
+                        </div>
+                    </div>
                 </div>
             </div>
         </ng-template>
     </ul>
+    <button (click)="addEmployee()" type="button" class="btn btn-default">
+        <fa-icon [icon]="addIcon"></fa-icon>
+    </button>
 </form>
 <ng-template [ngIf]="saved">
     <h2>Saved data</h2>
