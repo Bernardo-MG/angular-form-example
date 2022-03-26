@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { faArrowLeftLong, faFloppyDisk, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { Company } from '../model/company';
 import { Employee } from '../model/employee';
@@ -41,6 +41,32 @@ export class DataFormComponent implements OnChanges {
 
   get employees(): FormArray {
     return <FormArray>this.form.get('employees');
+  }
+
+  public errors(field: string): ValidationErrors | null {
+    const fieldError = this.form.controls[field];
+
+    let errors;
+    if (fieldError) {
+      errors = this.form.controls[field].errors;
+    } else {
+      errors = null;
+    }
+
+    return errors;
+  }
+
+  public error(field: string, code: string): any {
+    const errorList = this.errors(field);
+
+    let errorData;
+    if (errorList) {
+      errorData = errorList[code];
+    } else {
+      errorData = null;
+    }
+
+    return errorData;
   }
 
   public goBack() {
