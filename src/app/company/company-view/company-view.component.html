@@ -1,0 +1,6 @@
+<ng-template [ngIf]="selection" [ngIfElse]="select">
+    <company-data-form [data]="selection"></company-data-form>
+</ng-template>
+<ng-template #select>
+    <company-data-select (selected)="pickData($event)"></company-data-select>
+</ng-template>

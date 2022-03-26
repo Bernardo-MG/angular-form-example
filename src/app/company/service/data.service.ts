@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Company } from '../model/company';
+import { Employee } from '../model/employee';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,16 @@ export class DataService {
   public getCompanies(): Company[] {
     const companies: Company[] = [];
     let company: Company;
+    let employee: Employee;
 
-    company = { name: 'Company 1', employees: [] };
+    company = new Company();
+    company.name = "Company 1";
+    company.location = "Company location";
+    
+    employee = new Employee();
+    employee.name = 'Employee 1';
+    company.employees.push(employee);
+
     companies.push(company);
 
     return companies;

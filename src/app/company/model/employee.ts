@@ -1,3 +1,3 @@
-export interface Employee {
-    name: string;
+export class Employee {
+    name: string = '';
 }

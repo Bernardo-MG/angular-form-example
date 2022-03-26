@@ -1,6 +1,7 @@
 import { Employee } from "./employee";
 
-export interface Company {
-    name: string;
-    employees: Employee[];
+export class Company {
+    name: string = '';
+    location: string = '';
+    employees: Employee[] = [];
 }

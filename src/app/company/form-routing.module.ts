@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DataFormComponent } from './data-form/data-form.component';
-import { DataSelectComponent } from './data-select/data-select.component';
+import { CompanyViewComponent } from './company-view/company-view.component';
 
 const routes: Routes = [
     {
-        path: '',
-        children: [
-            { path: '', component: DataSelectComponent },
-            { path: ':id', component: DataFormComponent }
-        ]
+        path: '', component: CompanyViewComponent
     }
 ];
 

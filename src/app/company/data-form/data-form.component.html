@@ -1,1 +1,24 @@
-<p>data-form works!</p>
+<div class="row">
+    <div class="col-11">
+        <h1>{{data.name}}</h1>
+    </div>
+    <div class="col-1">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">
+                <fa-icon [icon]="editIcon"></fa-icon>
+            </button>
+            <button type="button" class="btn btn-default">
+                <fa-icon [icon]="deleteIcon"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>
+<ul>
+    <li>{{data.location}}</li>
+</ul>
+<h2>Employees</h2>
+<ul>
+    <ng-template ngFor let-employee [ngForOf]="data.employees">
+        <li>{{employee.name}}</li>
+    </ng-template>
+</ul>
