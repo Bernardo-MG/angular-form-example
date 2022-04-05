@@ -19,7 +19,7 @@ export class DataFormComponent implements OnChanges {
 
   formData: Company = new Company();
 
-  form: FormGroup = this.formBuilder.group({});
+  form: FormGroup;
 
   saved: String | null = null;
 
